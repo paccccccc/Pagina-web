@@ -295,6 +295,62 @@ button[type="submit"]:hover {
     opacity: 0.8;
 }
 .icono {display: none;}
+.anuncio {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #000000
+		; /* Fondo oscuro para el anuncio */
+    color: white;
+}
+
+.anuncio h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.anuncio-contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000; /* Fondo para el contenedor del iframe */
+    padding: 20px;
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+.anuncio-contenedor iframe {
+    border: none; /* Eliminar bordes del iframe */
+    border-radius: 5px; /* Bordes redondeados del iframe */
+	width: 728px;
+	height: 90px
+	
+}
+.banner {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    text-align: center;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ff5733; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    text-decoration: none; /* Sin subrayado */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s; /* Efecto de transición */
+}
+
+.button:hover {
+    background-color: #c70039; /* Color del botón al pasar el mouse */
+}
 
 @media (max-width: 768px) {
     .social-buttons {
@@ -318,4 +374,5 @@ button[type="submit"]:hover {
     header nav ul {display: block;}
     .logo {right: 30px;}
     header .container {flex-flow: wrap;}
+    .feature {width: 90%;}
 }
