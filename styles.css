@@ -333,6 +333,7 @@ button[type="submit"]:hover {
     background-color: #28a745;
 }
 
+
 .banner {
     position: relative;
     width: 100%;
@@ -359,6 +360,7 @@ button[type="submit"]:hover {
 
 .button:hover {
     background-color: #c70039; /* Color del botón al pasar el mouse */
+ 
 }
 
 @media (max-width: 768px) {
@@ -379,7 +381,7 @@ button[type="submit"]:hover {
         padding: 0 1rem;
     }
     .icono {display: block;color: #ddd; position: absolute; top: 10px; right: 10px;}
-    nav li {display: block;}
+    nav li {display: block; padding: 15px; font-size: medium;}
     header nav ul {display: block;}
     .logo {right: 30px;}
     header .container {flex-flow: wrap;}
