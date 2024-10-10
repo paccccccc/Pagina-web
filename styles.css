@@ -295,35 +295,44 @@ button[type="submit"]:hover {
     opacity: 0.8;
 }
 .icono {display: none;}
+
 .anuncio {
-    padding: 40px 20px;
-    text-align: center;
-    background-color: #000000
-		; /* Fondo oscuro para el anuncio */
+    width: 728px;
+    height: 90px;
+    background-color: #333;
     color: white;
-}
-
-.anuncio h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-}
-
-.anuncio-contenedor {
+    text-align:center;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    background-color: #000000; /* Fondo para el contenedor del iframe */
-    padding: 20px;
-    border-radius: 10px; /* Bordes redondeados */
+    padding: 10px;
+    box-sizing: border-box;
+     font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
+}    
+
+.anuncio img {
+    height: 100%;
+    width: auto;
+    border-radius: 5px;
 }
 
-.anuncio-contenedor iframe {
-    border: none; /* Eliminar bordes del iframe */
-    border-radius: 5px; /* Bordes redondeados del iframe */
-	width: 728px;
-	height: 90px
-	
+.anuncio h1 {
+    font-size: 2.5rem;
+    margin: 0;
 }
+
+.anuncio a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    background-color: #71FF85;
+    border-radius: 5px;
+}
+
+.anuncio a:hover {
+    background-color: #28a745;
+}
+
 .banner {
     position: relative;
     width: 100%;
@@ -376,3 +385,27 @@ button[type="submit"]:hover {
     header .container {flex-flow: wrap;}
     .feature {width: 90%;}
 }
+     /* Adaptación a móviles (300 x 600 px) */
+     @media (max-width: 768px) {
+        .anuncio {
+            width: 100%;
+            height: 600px;
+            flex-direction: column;
+        }
+
+        .anuncio img {
+            width: 80%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .anuncio h1 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .anuncio a {
+            padding: 10px 20px;
+            font-size: 1rem;
+        }
+    }
