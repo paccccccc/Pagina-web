@@ -388,4 +388,20 @@ button[type="submit"]:hover {
     header .container {flex-flow: wrap;}
     .feature {width: 90%;}
     .anunciosimon iframe {width: 300px;height: 600px}
+    .button-presentation {
+        background-color: #FF0000; /* Rojo */
+        color: white;              /* Texto en blanco */
+        padding: 15px 30px;        /* Espaciado interior */
+        font-size: 1.2rem;         /* Tamaño de fuente */
+        text-decoration: none;     /* Sin subrayado */
+        border-radius: 25px;       /* Bordes redondeados */
+        display: inline-block;     /* Que se comporte como un bloque pero no ocupe toda la línea */
+        text-align: center;        /* Centrar el texto dentro del botón */
+        margin-top: 20px;          /* Espaciado superior */
+        transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+    }
+    
+    .button-presentation:hover {
+        background-color: #cc0000; /* Rojo más oscuro cuando el ratón pasa por encima */
+    }
 }
