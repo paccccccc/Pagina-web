@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación de Autos Japoneses</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Oswald', sans-serif;
+            background-color: #FFF;
+            color: #FF0000; /* Texto en rojo */
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative; /* Aseguramos que el contenedor de la página sea relativo */
+        }
+
+        .slide {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        /* Estilos para la primera diapositiva */
+        .logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .main-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #FF0000; /* Título en rojo */
+        }
+
+        .info {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            color: #FF0000; /* Texto adicional en rojo */
+        }
+
+        /* Estilos para títulos grandes */
+        .large-title {
+            font-size: 3rem;
+            color: #000000; /* Título en negro */
+            margin: 0;
+        }
+
+        #slide2 {background-color: #cc0000;}
+
+        /* Estilos para la diapositiva 3 */
+        #slide3 h2 {
+            font-size: 3rem;
+            color: #000000;
+            margin-bottom: 20px;
+        }
+
+        #slide3 p {
+            font-size: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* Estilos para la diapositiva 4 (con imagen a la izquierda y texto a la derecha) */
+        #slide4 {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        #slide4 img {
+            max-width: 45%; /* Limitar el tamaño de la imagen al 45% */
+            height: auto;
+            border-radius: 8px;
+        }
+
+        #slide4 .text {
+            max-width: 45%;
+            font-size: 1.5rem;
+            line-height: 1.8;
+            color: #000000;
+            text-align: left;
+        }
+
+        /* Estilos para la diapositiva 5 (nueva diapositiva) */
+        #slide5 {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        #slide5 .text {
+            max-width: 50%;
+            font-size: 1.5rem;
+            line-height: 1.8;
+            color: #000000;
+            text-align: left;
+        }
+
+        #slide5 h3 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #FF0000;
+            padding-left: 150px;
+        }
+
+        #slide5 img {
+            max-width: 40%; /* Limitar el tamaño de la imagen al 40% */
+            height: auto;
+            border-radius: 8px;
+            padding-right: 150px;
+        }
+
+        /* Estilos para la diapositiva 6 */
+        #slide6 h2 {
+            font-size: 3rem;
+            color: #FF0000;
+            margin-bottom: 20px;
+        }
+
+        #slide6 p {
+            font-size: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* Estilos para el botón grande en la última diapositiva */
+        .button-large {
+            background-color: #FF0000; /* Botón en rojo */
+            color: white;
+            padding: 20px 40px;
+            font-size: 2rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .button-large:hover {
+            background-color: #cc0000; /* Color del botón al pasar el mouse */
+        }
+
+        /* Controles de navegación */
+        .controls {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .button {
+            background-color: #FF0000; /* Botones en rojo */
+            color: white;
+            padding: 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 2rem;
+            border-radius: 50%;
+            pointer-events: all;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .button:hover {
+            background-color: #cc0000; /* Color de los botones al pasar el mouse */
+        }
+
+        .button-left {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .button-right {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Estilos Responsivos */
+        @media (max-width: 768px) {
+            .main-title, .large-title, #slide3 h2, #slide4 h2 {
+                font-size: 2.5rem;
+            }
+
+            .info {
+                font-size: 1.1rem;
+            }
+
+            .button-large {
+                font-size: 1.8rem;
+                padding: 15px 30px;
+            }
+
+            img {
+                max-width: 100%; /* Asegura que la imagen ocupe el 100% del ancho disponible */
+            }
+
+            #slide4 {
+                flex-direction: column; /* En pantallas pequeñas, apilamos la imagen y el texto */
+                text-align: center;
+            }
+
+            #slide4 img {
+                max-width: 80%; /* La imagen ocupará un 80% del espacio disponible en pantallas pequeñas */
+                margin-bottom: 20px;
+            }
+
+            #slide4 .text {
+                max-width: 100%;
+            }
+
+            #slide5 {
+                flex-direction: column; /* En pantallas pequeñas, apilamos los títulos y la imagen */
+                text-align: center;
+            }
+
+            #slide5 .text {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+
+            #slide5 img {
+                max-width: 80%;
+                margin-bottom: 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Diapositiva 1 -->
+    <div class="slide active" id="slide1">
+        <img src="logo jdm.png" alt="Logo de autos japoneses" class="logo">
+        <h1 class="main-title">Presentación de Autos Japoneses</h1>
+        <div class="info">
+            <p>Francisco Tornau</p>
+            <p>Wenceslao Zavala</p>
+            <p>Producción Digital I</p>
+        </div>
+    </div>
+
+    <!-- Diapositiva 2 -->
+    <div class="slide" id="slide2">
+        <h1 class="large-title">¿De qué trata la página?</h1>
+    </div>
+
+    <!-- Diapositiva 3 -->
+    <div class="slide" id="slide3">
+        <h2>Autos y cultura automotriz japonesa</h2>
+        <p>Descubre algunos de los modelos más emblemáticos y revolucionarios.</p>
+        <img src="toyota ae86.jpg" alt="Toyota AE86">
+    </div>
+
+    <!-- Diapositiva 4 (con imagen a la izquierda y texto a la derecha) -->
+    <div class="slide" id="slide4">
+        <img src="nissan gt-r r34.jpg" alt="Imagen de autos japoneses">
+        <div class="text">
+            <h1>Acerca de Autos Japoneses</h1>
+            <p>La página cuenta con anuncios, una galería informativa, un formulario para contactarse y links directos a las redes sociales.</p>
+        </div>
+    </div>
+
+    <!-- Nueva Diapositiva 5 -->
+    <div class="slide" id="slide5">
+        <div class="text">
+            <h3>- Diseño intuitivo e interfaz amigable.</h3>
+            <h3>- Facil de navegar.</h3>
+            <h3>- Colores amigables e inspirados en japon y su bandera.</h3>
+        </div>
+        <img src="anuncio celular.png"Imagen de autos japoneses">
+    </div>
+
+    <!-- Diapositiva 6 (anteriormente Diapositiva 5) -->
+    <div class="slide" id="slide6">
+        <h2>Paginas de inicio</h2>
+        <div class="images-container">
+            <img src="pagina inicio escritorio.png" alt="Innovación en autos japoneses 1" style="max-width: 50%; padding: 50px;">
+            <img src="pagina inicio celular.png" alt="Innovación en autos japoneses 2" style="max-width: 50%; max-height: 400px; padding: 50px;">
+        </div>
+    </div>
+
+    <!-- Diapositiva 7 (anteriormente Diapositiva 6) -->
+    <div class="slide" id="slide7">
+        <h2>Gracias por su atencion!</h2>
+        <a href="https://paccccccc.github.io/Pagina-web/" class="button-large">Sitio web</a>
+    </div>
+
+    <!-- Controles de navegación -->
+    <div class="controls">
+        <button class="button button-left" onclick="prevSlide()">&#9664;</button>
+        <button class="button button-right" onclick="nextSlide()">&#9654;</button>
+    </div>
+
+    <!-- JavaScript para la navegación -->
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 7;  // Ahora hay 7 diapositivas
+
+        function showSlide(n) {
+            document.querySelectorAll('.slide').forEach(slide => slide.classList.remove('active'));
+            document.getElementById(`slide${n}`).classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide % totalSlides) + 1;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 2 + totalSlides) % totalSlides + 1;
+            showSlide(currentSlide);
+        }
+
+        // Iniciar mostrando la primera diapositiva
+        showSlide(currentSlide);
+    </script>
+
+</body>
+</html>
