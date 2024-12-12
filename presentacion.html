@@ -16,7 +16,7 @@
             align-items: center;
             height: 100vh;
             overflow: hidden;
-            position: relative; /* Aseguramos que el contenedor de la página sea relativo */
+            position: relative;
         }
 
         .slide {
@@ -63,70 +63,229 @@
 
         #slide2 {background-color: #cc0000;}
 
-        /* Estilos para la diapositiva 3 */
-        #slide3 h2 {
-            font-size: 3rem;
-            color: #000000;
-            margin-bottom: 20px;
+/* Estilos para la diapositiva 3 */
+#slide3 {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#slide3 .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(Fondo\ diapositiva\ 3.jpg); /* Aquí va la URL de tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px);
+    z-index: 0;
+}
+
+#slide3 .content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro y semi-transparente */
+    border-radius: 10px; /* Bordes redondeados */
+    margin: 0 auto;
+    max-width: 80%; /* Ajuste el ancho máximo */
+}
+
+#slide3 h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+#slide3 p {
+    font-size: 1.5rem;
+    line-height: 1.8;
+}
+
+#slide3 img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+
+/* Estilos para la diapositiva 4 */
+#slide4 {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#slide4 .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(Fondo\ diapositiva.jpg); /* Aquí va la URL de tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px);
+    z-index: 0;
+}
+
+#slide4 .content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+}
+
+#slide4 .text {
+    max-width: 45%;
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: #ffffff;
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#slide4 img {
+    max-width: 45%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Estilo para la diapositiva 5 */
+#slide5 {
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+/* Estilo para el contenedor que incluye texto e imágenes */
+#slide5 .content {
+    display: flex; /* Flexbox para dividir texto e imágenes */
+    justify-content: space-between; /* Alinear el texto a la izquierda y las imágenes a la derecha */
+    align-items: center;
+}
+
+/* Estilo para el texto dentro de la diapositiva */
+#slide5 .text {
+    max-width: 45%; /* El texto ocupa el 45% del ancho */
+    font-size: 2rem;
+    line-height: 1.8;
+    color: #000000;
+    text-align: left;
+}
+
+/* Estilo para el contenedor de imágenes */
+#slide5 .images-container {
+    display: flex; /* Alineación de las imágenes en fila */
+    justify-content: space-between;
+    width: 50%; /* Las imágenes ocupan el 50% del ancho */
+}
+
+/* Estilo para las imágenes dentro del contenedor */
+#slide5 img {
+    max-width: 100%; /* Las imágenes pueden ocupar todo el espacio disponible */
+    height: auto; /* Mantener la proporción original */
+    object-fit: contain; /* Asegura que las imágenes no se estiren */
+    border-radius: 8px;
+    margin: 0 10px; /* Agregar espacio entre imágenes */
+}
+
+/* Asegurarse de que las imágenes no se desborden */
+#slide5 .images-container img:first-child {
+    max-height: 800px; /* Limitar la altura máxima de la primera imagen */
+    padding-bottom: 350px;
+}
+
+#slide5 .images-container img:last-child {
+    max-height: 700px; /* Limitar la altura máxima de la segunda imagen */
+}
+
+
+
+
+        /* Estilos Responsivos */
+        @media (max-width: 768px) {
+            #slide4 .content {
+        flex-direction: column; /* Cambiamos a columna para apilar los elementos */
+        justify-content: center; /* Centramos los elementos verticalmente */
+        align-items: center; /* Centramos los elementos horizontalmente */
+        height: auto; /* Ajustamos la altura */
+    }
+
+    #slide4 .text {
+        max-width: 90%; /* Permitimos que el texto ocupe más espacio en móviles */
+        text-align: center; /* Centramos el texto */
+        margin-bottom: 20px; /* Espacio debajo del texto */
+    }
+
+    #slide4 img {
+        display: none; /* Ocultamos la imagen en móviles */
+    }
+}
+
+            #slide3 img {
+        max-width: 90%; /* La imagen ocupará el 90% del ancho en móviles */
+        margin: 10px auto; /* Centrado y algo de espacio en los márgenes */
+    }
+            /* En móviles, ocultamos el texto */
+            #slide5 .text {
+                display: none; /* Ocultar texto en móviles */
+            }
+
+            /* En móviles, las imágenes se apilan verticalmente */
+            #slide5 .images-container {
+                display: block; /* Usamos block para evitar problemas de flex */
+                width: 100%;
+                padding: 10px;
+            }
+
+            /* Las imágenes ocupan el 90% del ancho disponible */
+            #slide5 img {
+                width: 90%;
+                max-width: 500px;
+                height: auto;
+                margin-bottom: 20px;
+            }
+
+            /* Ajustamos márgenes entre imágenes */
+            #slide5 .images-container img:first-child {
+                margin-bottom: 10px;
+            }
+
+            #slide5 .images-container img:last-child {
+                margin-top: 10px;
+            }
+
+            /* Reubicamos los controles a una posición más adecuada */
+            .controls {
+                top: 85%;
+            }
+        
+
+        /* En pantallas grandes (por encima de 768px) */
+        @media (min-width: 769px) {
+            /* Aseguramos que el texto esté visible en pantallas grandes */
+            #slide5 .text {
+                display: block; /* Aseguramos que el texto se vea en pantallas grandes */
+            }
+
+            /* Las imágenes ocupan menos espacio en pantallas grandes */
+            #slide5 img {
+                max-width: 40%;
+            }
         }
 
-        #slide3 p {
-            font-size: 1.5rem;
-            line-height: 1.8;
-        }
-
-        /* Estilos para la diapositiva 4 (con imagen a la izquierda y texto a la derecha) */
-        #slide4 {
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-
-        #slide4 img {
-            max-width: 45%; /* Limitar el tamaño de la imagen al 45% */
-            height: auto;
-            border-radius: 8px;
-        }
-
-        #slide4 .text {
-            max-width: 45%;
-            font-size: 1.5rem;
-            line-height: 1.8;
-            color: #000000;
-            text-align: left;
-        }
-
-        /* Estilos para la diapositiva 5 (nueva diapositiva) */
-        #slide5 {
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-
-        #slide5 .text {
-            max-width: 50%;
-            font-size: 1.5rem;
-            line-height: 1.8;
-            color: #000000;
-            text-align: left;
-        }
-
-        #slide5 h3 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: #FF0000;
-            padding-left: 150px;
-        }
-
-        #slide5 img {
-            max-width: 40%; /* Limitar el tamaño de la imagen al 40% */
-            height: auto;
-            border-radius: 8px;
-            padding-right: 150px;
+        /* Reubicamos los controles a una posición más adecuada */
+        .controls {
+            top: 85%; /* Reubico los botones un poco más abajo en pantallas pequeñas */
         }
 
         /* Estilos para la diapositiva 6 */
@@ -143,7 +302,7 @@
 
         /* Estilos para el botón grande en la última diapositiva */
         .button-large {
-            background-color: #FF0000; /* Botón en rojo */
+            background-color: #FF0000;
             color: white;
             padding: 20px 40px;
             font-size: 2rem;
@@ -155,27 +314,28 @@
         }
 
         .button-large:hover {
-            background-color: #cc0000; /* Color del botón al pasar el mouse */
+            background-color: #cc0000;
         }
 
         /* Controles de navegación */
         .controls {
-            position: absolute;
+            position: fixed;
             width: 100%;
             display: flex;
             justify-content: space-between;
             top: 50%;
             transform: translateY(-50%);
             pointer-events: none;
+            z-index: 10;
         }
 
         .button {
-            background-color: #FF0000; /* Botones en rojo */
+            background-color: #FF0000;
             color: white;
             padding: 15px;
             border: none;
             cursor: pointer;
-            font-size: 2rem;
+            font-size: 1.8rem;
             border-radius: 50%;
             pointer-events: all;
             display: flex;
@@ -184,7 +344,7 @@
         }
 
         .button:hover {
-            background-color: #cc0000; /* Color de los botones al pasar el mouse */
+            background-color: #cc0000;
         }
 
         .button-left {
@@ -199,55 +359,6 @@
             right: 20px;
             top: 50%;
             transform: translateY(-50%);
-        }
-
-        /* Estilos Responsivos */
-        @media (max-width: 768px) {
-            .main-title, .large-title, #slide3 h2, #slide4 h2 {
-                font-size: 2.5rem;
-            }
-
-            .info {
-                font-size: 1.1rem;
-            }
-
-            .button-large {
-                font-size: 1.8rem;
-                padding: 15px 30px;
-            }
-
-            img {
-                max-width: 100%; /* Asegura que la imagen ocupe el 100% del ancho disponible */
-            }
-
-            #slide4 {
-                flex-direction: column; /* En pantallas pequeñas, apilamos la imagen y el texto */
-                text-align: center;
-            }
-
-            #slide4 img {
-                max-width: 80%; /* La imagen ocupará un 80% del espacio disponible en pantallas pequeñas */
-                margin-bottom: 20px;
-            }
-
-            #slide4 .text {
-                max-width: 100%;
-            }
-
-            #slide5 {
-                flex-direction: column; /* En pantallas pequeñas, apilamos los títulos y la imagen */
-                text-align: center;
-            }
-
-            #slide5 .text {
-                max-width: 100%;
-                margin-bottom: 20px;
-            }
-
-            #slide5 img {
-                max-width: 80%;
-                margin-bottom: 20px;
-            }
         }
 
     </style>
@@ -272,73 +383,69 @@
 
     <!-- Diapositiva 3 -->
     <div class="slide" id="slide3">
-        <h2>Autos y cultura automotriz japonesa</h2>
-        <p>Descubre algunos de los modelos más emblemáticos y revolucionarios.</p>
-        <img src="toyota ae86.jpg" alt="Toyota AE86">
-    </div>
-
-    <!-- Diapositiva 4 (con imagen a la izquierda y texto a la derecha) -->
-    <div class="slide" id="slide4">
-        <img src="nissan gt-r r34.jpg" alt="Imagen de autos japoneses">
-        <div class="text">
-            <h1>Acerca de Autos Japoneses</h1>
-            <p>La página cuenta con anuncios, una galería informativa, un formulario para contactarse y links directos a las redes sociales.</p>
+        <div class="background-image"></div>
+        <div class="content">
+            <h2>Autos y cultura automotriz japonesa</h2>
+            <p>Descubre algunos de los modelos más emblemáticos y revolucionarios.</p>
+            <img src="toyota ae86.jpg" alt="Toyota AE86">
         </div>
     </div>
 
-    <!-- Nueva Diapositiva 5 -->
-    <div class="slide" id="slide5">
+    <!-- Diapositiva 4 -->
+    <div class="slide" id="slide4">
+        <div class="background-image"></div>
+        <div class="content">
+            <img src="nissan gt-r r34.jpg" alt="Imagen de autos japoneses">
+            <div class="text">
+                <h1>Acerca de Autos Japoneses</h1>
+                <p>- Adaptabilidad</p>
+                <p>- Slider</p>
+                <p>- 4 secciones navegables</p>
+                <p>- Formulario</p>
+                <p>- Anuncios</p>
+                <p>- Galería</p>
+            </div>
+        </div>
+    </div>
+
+<!-- Diapositiva 5 -->
+<div class="slide" id="slide5">
+    <div class="content"> <!-- Contenedor flex para texto e imágenes -->
         <div class="text">
             <h3>- Diseño intuitivo e interfaz amigable.</h3>
-            <h3>- Facil de navegar.</h3>
-            <h3>- Colores amigables e inspirados en japon y su bandera.</h3>
+            <h3>- Fácil de navegar.</h3>
+            <h3>- Colores atractivos.</h3>
+            <h3>- Contenido atractivo.</h3>
         </div>
-        <img src="anuncio celular.png"Imagen de autos japoneses">
-    </div>
-
-    <!-- Diapositiva 6 (anteriormente Diapositiva 5) -->
-    <div class="slide" id="slide6">
-        <h2>Paginas de inicio</h2>
         <div class="images-container">
-            <img src="pagina inicio escritorio.png" alt="Innovación en autos japoneses 1" style="max-width: 50%; padding: 50px;">
-            <img src="pagina inicio celular.png" alt="Innovación en autos japoneses 2" style="max-width: 50%; max-height: 400px; padding: 50px;">
+            <img src="banner anuncio pc.png" alt="banner pc">
+            <img src="anuncio celular.png" alt="banner cel">
         </div>
     </div>
+</div>
 
-    <!-- Diapositiva 7 (anteriormente Diapositiva 6) -->
-    <div class="slide" id="slide7">
-        <h2>Gracias por su atencion!</h2>
-        <a href="https://paccccccc.github.io/Pagina-web/" class="button-large">Sitio web</a>
+
+    <!-- Diapositiva 6 -->
+    <div class="slide" id="slide6">
+        <h2>¡Explora más sobre el fascinante mundo de los autos japoneses!</h2>
+        <a href="https://paccccccc.github.io/Pagina-web/" class="button-large">Visita la página</a>
     </div>
 
     <!-- Controles de navegación -->
     <div class="controls">
-        <button class="button button-left" onclick="prevSlide()">&#9664;</button>
-        <button class="button button-right" onclick="nextSlide()">&#9654;</button>
+        <button class="button button-left" onclick="changeSlide(-1)">❮</button>
+        <button class="button button-right" onclick="changeSlide(1)">❯</button>
     </div>
 
-    <!-- JavaScript para la navegación -->
     <script>
-        let currentSlide = 1;
-        const totalSlides = 7;  // Ahora hay 7 diapositivas
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
 
-        function showSlide(n) {
-            document.querySelectorAll('.slide').forEach(slide => slide.classList.remove('active'));
-            document.getElementById(`slide${n}`).classList.add('active');
+        function changeSlide(direction) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + direction + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
         }
-
-        function nextSlide() {
-            currentSlide = (currentSlide % totalSlides) + 1;
-            showSlide(currentSlide);
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 2 + totalSlides) % totalSlides + 1;
-            showSlide(currentSlide);
-        }
-
-        // Iniciar mostrando la primera diapositiva
-        showSlide(currentSlide);
     </script>
 
 </body>
